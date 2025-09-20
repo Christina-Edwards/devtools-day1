@@ -91,4 +91,4 @@ x = 5;
 // Error 20:
 let myString = 'Hello';
 myString.property = 'World';
-console.log(myString.property);
+console.log(myString.property);}
