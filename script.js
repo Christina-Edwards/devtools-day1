@@ -1,12 +1,19 @@
 // Error 1:
 let message = 'Welcome to the debugging exercise!';
-console.log(mesage); 
+console.log(message); 
 
 // Error 2: 
+
+function eventHandler (event) {
+  console.log ("Button clicked!", event );
+}
 let button = document.querySelector('.actionButton'); 
 button.addEventListener('click', eventHandler); 
 
 // Error 3: 
+function displayOutput() {
+  console.log("Displaying output...");
+}
 function eventHandler() {
   console.log('Button clicked');
   displayOutput();
@@ -15,7 +22,11 @@ function eventHandler() {
 // Error 4: 
 function displayOutput() {
   let output = document.querySelector('#output'); 
-  output.innerText = 'You clicked the button!';
+  if (output) {
+    output.innerText = 'You clicked the button!';
+  } else {
+    console.warn('Element with ID "output" not found.');
+  }
 }
 
 // Error 6: Misusing variable scope
@@ -26,7 +37,7 @@ updateMessage();
 console.log(localMessage); 
 
 // Error 7:
-document.getElementById('testButton').addEventListener('click', testFunction());
+document.getElementById('testButton').addEventListener('click', testFunction);
 
 function testFunction() {
   console.log('Test function executed');
@@ -39,35 +50,46 @@ console.log('Sum is: ' + (number1 - number2));
 
 // Error 9: 
 let nullVar = null;
-console.log(nullVar.length);
+
+if (nullVar !== null) {
+  console.log(nullVar.length);
+} else {
+  console.warn('nullVar is null and has no properties.');
+}
 
 // Error 10:
 let caseSensitiveVar = 'Case matters';
-console.log(CaseSensitiveVar);
+console.log(caseSensitiveVar);
 
 // Error 11:
 let importantData =
   "This string must be logged to the console. It's important!";
-console.log('importantData');
+console.log(importantData);
 
 // Error 12: 
+function tryToCallFunction() {
+  console.log('Function successfully called!');
+}
+
 tryToCallFunction();
 
+
 // Error 13:
-let user = { namee: 'Alice' };
+let user = { name: 'Alice' };
 console.log(user.name)
 
 // Error 14: 
 let someNumber = 123;
-console.log(someNumber.toUpperCase()); 
+console.log(someNumber.toString().toUpperCase()); 
 
 // Error 15: 
-let greeting = Hello, world!;
+let greeting = "Hello, world!";
 
 // Error 16: 
-for (let i = 0; i < 5; i++); {
-    console.log(i);
+for (let i = 0; i < 5; i++) {
+  console.log(i);
 }
+
 
 // Error 17:
 let five = '5';
@@ -77,6 +99,7 @@ if (five === 5) {
     console.log('Five is not equal to 5'); 
 
 // Error 18:
+// Error 18:
 Array.prototype.push = function() {
     console.log('Array push method is overwritten');
 };
@@ -85,8 +108,10 @@ numbers.push(1);
 console.log(numbers);
 
 // Error 19:
-console.log(x);
 x = 5;
+console.log(x);
+
+
 
 // Error 20:
 let myString = 'Hello';
